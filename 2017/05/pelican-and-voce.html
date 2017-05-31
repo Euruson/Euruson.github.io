@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html lang="chinese (simplified)">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Euruson">
+  <meta name="description" content="Pelican and voce | 在使用Pelican搭建自己的博客网站时，遇到了非常多的问题。网上关于Pelican的中文教程很少，有些问题和配置在说明文档里也是一带而过（可能是我太菜了吧）。这里列举一些问题并提供一些解决方案供。 关于Fabric脚本...">
+  
+  <base href="../..">
+
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">  
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" href="../../theme/css/font.css" type="text/css" media="all">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../theme/css/style.css" type="text/css" media="all">
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../theme/js/functions.min.js"></script>
+
+  
+ 
+
+  <link href="http://blog.euruson.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Euruson's Blog Full Atom Feed" />
+
+<meta name="keywords" content="Pelican">
+
+
+  <title>Pelican and voce</title>
+
+  
+</head>
+
+<body class="home blog">
+  <div>
+    <header class="site-header">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="row">
+            <div class="site-navigation-inner col-sm-12">
+              <div class="navbar-header">
+                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul id="menu-all-pages" class="nav navbar-nav">
+                <li class="menu-item"><a href="index.html" >Home
+<i class="fa  fa-lg"></i></a></li>
+                <li class="menu-item"><a href="pages/about.html" >About
+<i class="fa  fa-lg"></i></a></li>
+              </ul>
+              </div>
+              <div class="social">   
+                <a href="/feeds/all.atom.xml" title="Feed" >
+<i class="fa fa-rss fa-lg"></i></a>
+                <a href="mailto:euruson@qq.com" title="Email" >
+<i class="fa fa-envelope fa-lg"></i></a>
+                <a href="http://github.com/euruson" title="GitHub" >
+<i class="fa fa-github fa-lg"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav><!-- .site-navigation -->
+
+      <div class="container">
+      <div id="logo">
+        <span class="site-name"><a class="navbar-brand" href="../.."><img width="310" src="images/me.jpg" class="attachment-full size-full" alt="logo">          </a>
+        </span><!-- end of .site-name -->
+      </div><!-- end of #logo -->
+        <div class="tagline">
+                <a href="../../tag/pelican.html" >Pelican (1)</a> &#124; 
+                <a href="../../archives.html" >Archives (1)</a>
+        </div>
+    </div>
+
+  </header><!-- #masthead -->
+  </div>
+    <div id="content" class="site-content">
+      <div class="container main-content-area">
+        <div class="row">
+          <div class="main-content-inner col-sm-12 col-md-12">
+            <div id="primary" class="content-area">
+              <div id="main" class="site-main" role="main">
+                <div class="article-container">
+<article>
+  <div class="blog-item-wrap">
+    <div class="post-inner-content">
+      <header class="entry-header page-header">
+        <span class="cat-item"><time datetime="2017-05-27 22:42:00+08:00">周六 27 五月 2017</time></span>
+        <h1 class="entry-title"><a href="../../2017/05/pelican-and-voce.html">Pelican and voce</a></h1>
+      </header><!-- .entry-header -->
+      <div class="fb-like" data-href="../../2017/05/pelican-and-voce.html" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+      <div class="entry-content">
+        <p>在使用Pelican搭建自己的博客网站时，遇到了非常多的问题。网上关于Pelican的中文教程很少，有些问题和配置在说明文档里也是一带而过（可能是我太菜了吧）。这里列举一些问题并提供一些解决方案供。</p>
+<h2>关于Fabric脚本</h2>
+<p>因为我是在Win10环境下配置的，要用make的话有点麻烦，于是选择使用Fabric。</p>
+<ol>
+<li>我用的是<code>Python 3.6.1</code>，旧版的Fabric不兼容，所以无法使用。</li>
+<li>调用<code>pip install fabric3</code> 安装Fabric3。</li>
+<li>安装好后调用<code>far serve</code>出错，发现没有<code>SocketServer</code>模块，python3中应该是<code>socketserver</code>,改掉即可。</li>
+</ol>
+<h2>关于voce主题</h2>
+<p>哇，第一眼就被这个简洁的风格吸引了，加上原博主的那个二位码的logo，感觉不能再好了。之后去github上看了下，并没有很火的样子。嗯，小众，典雅，就决定是你了。然而原来的创作者很久没维护了，落下了很多坑。</p>
+<ol>
+<li>
+<p>Assets插件版本过旧
+   使用<code>pip install pelican</code>安装的是Pelican(3.7.1), 原来repo中的插件太老了不支持，会出现<code>CRITICAL: KeyError: u'JINJA_EXTENSIONS'</code>的问题， 下载<a href="https://github.com/getpelican/pelican-plugins/tree/master/assets">getpelican/pelican-plugins/assets</a>覆盖掉原来插件就行了。或者直接克隆我的repo中的<a href="https://github.com/Euruson/voce">voce</a>。</p>
+</li>
+<li>
+<p><code>pelicanconf.py</code>中的LINKS和SOCIAL
+   因为voce主题并没有menu，所以一些连接得放在LINKS中。SOCIAL因为有定制化的图标，所以只支持一些主流的社交或工作平台。(或许只是我没有发现使用的方法)</p>
+</li>
+<li>
+<p>TAGLINE
+   原创作者给的<a href="http://limbenjamin.com">示范网站</a>的logo下面有Tagline的索引，很漂亮。但是我一开始使用的时候那个地方只有一片丑陋的空白。这个地方真是让我废了一番功夫，先是把Pelican的文档基本读了一边，没找到办法。因为voce是从<a href="https://github.com/pR0Ps/pelican-subtle">pelican-subtle</a>和<a href="https://github.com/gfidente/pelican-svbhack">pelican-svbhack</a>修改而来的，于是我又去这两个repo找了一下，发现有个TAGLINE的参数。但是使用了以后偶尔会生效，感觉没找到正确的方法。最后直接到<code>templates/base.html</code>中去看模板，发现必须到<code>pelicanconf.py</code>中设置<code>TAGS_URL</code>和<code>ARCHIVES_URL</code>两个参数。</p>
+</li>
+<li>
+<p>我的<code>pelicanconf.py</code>
+   因为我发现大多数的问题都是因为没有给出配置文件，所以我把我的配置文件贴出来，其中也有一些其他的在这个过程中学到的东西。</p>
+</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*- #</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+
+<span class="c1">#Author</span>
+<span class="n">AUTHOR</span> <span class="o">=</span> <span class="s1">&#39;Euruson&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s2">&quot;Euruson&#39;s Blog&quot;</span>
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8000&#39;</span>
+
+<span class="c1">#Markdown extensions</span>
+<span class="n">MARKDOWN</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;extension_configs&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;markdown.extensions.codehilite&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;css_class&#39;</span><span class="p">:</span> <span class="s1">&#39;highlight&#39;</span><span class="p">,</span><span class="s1">&#39;linenums&#39;</span><span class="p">:</span><span class="s1">&#39;True&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;markdown.extensions.extra&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;markdown.extensions.meta&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;output_format&#39;</span><span class="p">:</span> <span class="s1">&#39;html5&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">#Content</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;content&#39;</span>
+<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pages&#39;</span><span class="p">,</span><span class="s1">&#39;images&#39;</span><span class="p">]</span>
+<span class="n">ARTICLE_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;articles&#39;</span><span class="p">]</span>
+<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{date:%Y}/{date:%m}/{slug}.html&#39;</span>
+<span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="s1">&#39;{date:%Y}/{date:%m}/{slug}.html&#39;</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Shanghai&#39;</span>
+
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s1">&#39;Chinese (Simplified)&#39;</span>
+
+<span class="c1">#Article settings &amp; URL</span>
+<span class="n">DEFAULT_CATEGORY</span> <span class="o">=</span> <span class="s1">&#39;Untitled&#39;</span>
+<span class="n">TAGS_URL</span> <span class="o">=</span> <span class="s1">&#39;tags.html&#39;</span>
+<span class="n">ARCHIVES_URL</span> <span class="o">=</span> <span class="s1">&#39;archives.html&#39;</span>
+
+
+<span class="c1"># Feed generation is usually not desired when developing</span>
+<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_RSS</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c1"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;Home&#39;</span><span class="p">,</span><span class="s1">&#39;index.html&#39;</span><span class="p">),</span>
+     <span class="p">(</span><span class="s1">&#39;About&#39;</span><span class="p">,</span><span class="s1">&#39;pages/about.html&#39;</span><span class="p">),)</span>
+
+<span class="c1"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;Feed&#39;</span><span class="p">,</span><span class="s1">&#39;/feeds/all.atom.xml&#39;</span><span class="p">),</span>
+      <span class="p">(</span><span class="s1">&#39;Email&#39;</span><span class="p">,</span><span class="s1">&#39;mailto:xxx@qq.com&#39;</span><span class="p">),</span>
+      <span class="p">(</span><span class="s1">&#39;GitHub&#39;</span><span class="p">,</span><span class="s1">&#39;http://github.com/euruson&#39;</span><span class="p">),)</span>
+
+<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Uncomment following line if you want document-relative URLs when developing</span>
+<span class="c1">#RELATIVE_URLS = True</span>
+
+<span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pelican-plugins&quot;</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;assets&quot;</span><span class="p">]</span>
+
+<span class="c1">#Theme &amp; its features</span>
+<span class="n">THEME</span> <span class="o">=</span> <span class="s1">&#39;pelican-themes/voce&#39;</span>
+<span class="n">MANGLE_EMAIL</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">USER_LOGO_URL</span> <span class="o">=</span> <span class="s1">&#39;images/me.jpg&#39;</span>
+</pre></div>
+</td></tr></table>
+
+<h2>关于Pelican</h2>
+<p>Pelican的Markdown或者说Python-Markdown是不支持Github Flavored Markdown的，必须使用Markdown的扩展<code>extensions</code>。</p>
+<blockquote>
+<p>The <a href="https://pythonhosted.org/Markdown/">Python-Markdown</a> library (which Pelican uses to parse markdown documents) includes support for a number of <a href="https://pythonhosted.org/Markdown/extensions/index.html#officially-supported-extensions">built-in</a> and <a href="https://github.com/waylan/Python-Markdown/wiki/Third-Party-Extensions">third party</a> extensions and many of those extensions offer support for configuration options to alter their behavior. As of Pelican <a href="https://blog.getpelican.com/pelican-3.7-released.html">3.7</a>, to choose the available Markdown extensions and configure the extensions that you are using, you can edit the <code>MARKDOWN</code> setting (cf. <a href="http://docs.getpelican.com/en/3.7.0/settings.html"><code>settings</code></a>). Default options are:</p>
+</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">MARKDOWN</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;extension_configs&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;markdown.extensions.codehilite&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;css_class&#39;</span><span class="p">:</span> <span class="s1">&#39;highlight&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;markdown.extensions.extra&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;markdown.extensions.meta&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;output_format&#39;</span><span class="p">:</span> <span class="s1">&#39;html5&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>In versions before 3.7, you can edit the <code>MD_EXTENSIONS</code> setting (cf. <a href="http://pelican.readthedocs.org/en/3.5.0/settings.html#basic-settings"><code>settings</code></a>). These earlier versions do not offer a setting that would get passed into Markdown's <a href="https://pythonhosted.org/Markdown/reference.html#extension_configs">extension_configs</a> keyword, but Markdown does allow instances of extension classes to be passing in rather than the string names of the extensions. Hence, in these earlier versions, as Pelican's setting file is just Python, you can import your extensions, create an instance with the config options you want, and pass that in using Pelican's setting.</p>
+</blockquote>
+<p>最坑爹的是，Python-Markdown不支持子结构的Fenced Block, <a href="http://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html">Python Markdown v2.6.8 documentation</a>：</p>
+<blockquote>
+<p>Warning: Fenced Code Blocks are only supported at the document root level. Therefore, they cannot be nested inside lists or blockquotes. </p>
+</blockquote>
+      </div><!-- .entry-content -->
+      <br /><br />
+      <div class="article_meta">
+        Tags:
+          <a href="../../tag/pelican.html">Pelican</a>      </div>
+    </div>
+  </div>
+</article><!-- #post-## -->
+                </div>
+              </div><!-- #main -->
+          </div><!-- #primary -->
+        </div>
+      </div><!-- close .row -->
+    </div><!-- close .container -->
+  </div><!-- close .site-content -->
+
+
+
+
+  <div id="footer-area">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="site-info container">
+        <div class="row">
+                    <div class="copyright col-md-12">
+                    <a href="../../pages/privacy-policy">Privacy Policy</a> | 
+                    <a href="../../feeds/all.atom.xml">Atom Feed</a> | 
+                    <a href="../../sitemap.xml">Sitemap</a><br />
+                    This site uses the <a href="https://github.com/limbenjamin/voce">voce</a> theme by <a href="//limbenjamin.com/">Benjamin Lim</a><br />
+                    &copy; 2012-2017 <a href="../..">Euruson</a> </div>
+        </div>
+      </div><!-- .site-info -->
+      <div class="scroll-to-top" style="display: none;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+    </footer><!-- #colophon -->
+  </div>
+
+  <script type="text/javascript">
+    window.addEventListener('load', function(){
+    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
+      window.scroll(0, document.getElementById('main').offsetTop);
+    }})
+  </script>
+
+
+
+
+</body>
+</html>

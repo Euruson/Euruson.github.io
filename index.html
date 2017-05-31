@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="chinese (simplified)">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Euruson">
+  <meta name="description" content="Articles by Euruson">
+  
+  <base href=".">
+
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">  
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" href="./theme/css/font.css" type="text/css" media="all">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./theme/css/style.css" type="text/css" media="all">
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./theme/js/functions.min.js"></script>
+
+  
+ 
+
+  <link href="http://blog.euruson.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Euruson's Blog Full Atom Feed" />
+
+  <meta name="keywords" content="Pelican">
+
+  <title>Euruson's Blog</title>
+
+  
+</head>
+
+<body class="home blog">
+  <div>
+    <header class="site-header">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="row">
+            <div class="site-navigation-inner col-sm-12">
+              <div class="navbar-header">
+                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul id="menu-all-pages" class="nav navbar-nav">
+                <li class="menu-item"><a href="index.html" class="active">Home
+<i class="fa  fa-lg"></i></a></li>
+                <li class="menu-item"><a href="pages/about.html" >About
+<i class="fa  fa-lg"></i></a></li>
+              </ul>
+              </div>
+              <div class="social">   
+                <a href="/feeds/all.atom.xml" title="Feed" >
+<i class="fa fa-rss fa-lg"></i></a>
+                <a href="mailto:euruson@qq.com" title="Email" >
+<i class="fa fa-envelope fa-lg"></i></a>
+                <a href="http://github.com/euruson" title="GitHub" >
+<i class="fa fa-github fa-lg"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav><!-- .site-navigation -->
+
+      <div class="container">
+      <div id="logo">
+        <span class="site-name"><a class="navbar-brand" href="."><img width="310" src="images/me.jpg" class="attachment-full size-full" alt="logo">          </a>
+        </span><!-- end of .site-name -->
+      </div><!-- end of #logo -->
+        <div class="tagline">
+                <a href="./tag/pelican.html" >Pelican (1)</a> &#124; 
+                <a href="./archives.html" >Archives (1)</a>
+        </div>
+    </div>
+
+  </header><!-- #masthead -->
+  </div>
+    <div id="content" class="site-content">
+      <div class="container main-content-area">
+        <div class="row">
+          <div class="main-content-inner col-sm-12 col-md-12">
+            <div id="primary" class="content-area">
+              <div id="main" class="site-main" role="main">
+                <div class="article-container">
+<article class="post">
+	<div class="blog-item-wrap">
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+				<span class="cat-item"><time datetime="2017-05-27 22:42:00+08:00">周六 27 五月 2017</time></span>
+				<h1 class="entry-title"><a href="./2017/05/pelican-and-voce.html">Pelican and voce</a></h1>
+			</header><!-- .entry-header -->
+			<div class="entry-content">
+				在使用Pelican搭建自己的博客网站时，遇到了非常多的问题。网上关于Pelican的中文教程很少，有些问题和配置在说明文档里也是一带而过（可能是我太菜了吧）。这里列举一些问题并提供一些解决方案供。 关于Fabric脚本 因为我是在Win10环境下配置的，要用make的话有点麻烦，于是选择使用Fabric。 我用的是Python 3.6.1，旧版的Fabric不兼容，所以无法使用。 调用pip install fabric3 安装Fabric3。 安装好后调用far serve出错，发现没有SocketServer模块，python3中应该是socketserver,改掉即可。 关于voce主题 哇，第一眼就被这个简洁的风格吸引了，加上原博主的那个二位码的logo，感觉不能再好了。之后去github上看了下，并没有很火的样子。嗯，小众，典雅，就决定是你了。然而原来的创作者很久没维护了，落下了很多坑。 Assets插件版本过旧 使用pip install pelican …
+        	</div><!-- .entry-content -->
+		</div>
+	</div>
+</article><!-- #post-## -->
+                </div>
+<footer>
+<div id="paginator">
+  <span id="left">
+  </span>
+  <span id="right">
+  </span>
+  <div>
+      <a href="./index.html">[1]</a>
+  </div>
+</div>
+</footer>
+<div class="article_meta"></div>
+              </div><!-- #main -->
+          </div><!-- #primary -->
+        </div>
+      </div><!-- close .row -->
+    </div><!-- close .container -->
+  </div><!-- close .site-content -->
+
+
+
+
+  <div id="footer-area">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="site-info container">
+        <div class="row">
+                    <div class="copyright col-md-12">
+                    <a href="./pages/privacy-policy">Privacy Policy</a> | 
+                    <a href="./feeds/all.atom.xml">Atom Feed</a> | 
+                    <a href="./sitemap.xml">Sitemap</a><br />
+                    This site uses the <a href="https://github.com/limbenjamin/voce">voce</a> theme by <a href="//limbenjamin.com/">Benjamin Lim</a><br />
+                    &copy; 2012-2017 <a href=".">Euruson</a> </div>
+        </div>
+      </div><!-- .site-info -->
+      <div class="scroll-to-top" style="display: none;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+    </footer><!-- #colophon -->
+  </div>
+
+  <script type="text/javascript">
+    window.addEventListener('load', function(){
+    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
+      window.scroll(0, document.getElementById('main').offsetTop);
+    }})
+  </script>
+
+
+
+</body>
+</html>
